@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK1_JS</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="margin: 50px">Reverse String and Number</h1>
+    <input
+      type="text"
+      placeholder="Enter the text"
+      name="input_text"
+      id="inp"
+    />
+    <button type="button" onclick="reverse()" style="margin: 20px">
+      Submit
+    </button>
+    <div>Reversed Output: <span id="rev"></span></div>
+  </body>
+  <script>
+    function reverse() {
+  let x = document.getElementById("inp").value;
+  console.log(x);
+  let temp;
+  let y = "";
+
+  for (let i = x.length - 1; i >= 0; i--) {
+    temp = x[i];
+    y = y + temp;
+  }
+  document.querySelector("#rev").innerHTML = y;
+}
+
+  </script>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK8_JS</title>
+    <style>
+        .warning {
+  color: red;
+  margin: 10px;
+}
+.error {
+  border: 3px solid red;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.formcontainer {
+  background-image: radial-gradient(
+    circle at top,
+    #fefed8 20%,
+    #ec9ab1,
+    #d371bf
+  );
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#StudentForm {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#GenError {
+  margin-right: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#lngscontainer {
+  display: flex;
+  justify-content: left;
+}
+h1 {
+  color: blue;
+}
+
+td:first-child {
+  text-align: right;
+}
+
+input:not([type="checkbox"]):not([type="radio"]) {
+  width: 60%;
+}
+
+#DeclError {
+  min-width: 100px !important;
+}
+
+#regbtn {
+  background-color: #f80500;
+  color: white;
+  text-transform: capitalize;
+  border: 1.5px solid black;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin: 20px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="formcontainer">
+      <h1>Registration Form</h1>
+      <form id="StudentForm">
+        <table>
+          <tr>
+            <td>
+              <label for="fname"><b>First Name</b></label>
+            </td>
+            <td>
+              <input type="text" id="fname" />
+              <span id="fnError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="lname"><b>Last Name</b></label>
+            </td>
+            <td>
+              <input type="text" id="lname" />
+              <span id="lnError" class="warning"></span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="Email"><b>Email</b></label>
+            </td>
+            <td>
+              <input type="email" id="Email" />
+              <span id="EmailError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="Password"><b>Password</b></label>
+            </td>
+            <td>
+              <input type="password" id="Password" />
+              <span id="PassError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="RePassword"><b>Re-enter Password</b></label>
+            </td>
+            <td>
+              <input type="password" id="RePassword" />
+              <span id="RePassError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td rowspan="2">
+              <b>Gender</b>
+            </td>
+            <td style="display: flex; justify-content: space-between">
+              <div>
+                <input type="radio" name="gen" id="Male" value="M" />
+                <label for="Male">Male</label>
+              </div>
+              <span id="GenError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="text-align: left">
+              <input type="radio" name="gen" id="Female" value="F" />
+              <label for="Female">Female</label>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="Age"><b>Age</b></label>
+            </td>
+            <td>
+              <input type="number" id="Age" />
+              <span id="AgeError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="Phone"><b>Phone Number</b></label>
+            </td>
+            <td>
+              <input type="number" id="Phone" />
+              <span id="PhnError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="Address" style="margin-right: 5px"
+                ><b>Address</b></label
+              >
+            </td>
+            <td>
+              <textarea id="Address" rows="5" cols="40"></textarea>
+              <span class="warning" id="AdrError"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="State"><b>State</b></label>
+            </td>
+            <td>
+              <input type="text" id="State" />
+              <span id="StateError" class="warning"></span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="Country"><b>Country</b></label>
+            </td>
+            <td>
+              <select name="cntry" id="Country">
+                <option value="dummy">Choose your country</option>
+                <option value="ind">India</option>
+                <option value="rus">Russia</option>
+                <option value="uk">UK</option>
+                <option value="us">US</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="Lng"><b>Languages known</b></label>
+            </td>
+            <td id="lngscontainer">
+              <div id="lngs">
+                <input type="checkbox" id="eng" name="eng" />
+                <label for="eng">English</label>
+              </div>
+              <div class="lngs">
+                <input type="checkbox" id="knd" name="knd" />
+                <label for="knd">Kannada</label>
+              </div>
+              <div class="lngs">
+                <input type="checkbox" id="hin" name="hin" />
+                <label for="hin">Hindi</label>
+              </div>
+              <div class="lngs">
+                <input type="checkbox" id="tel" name="tel" />
+                <label for="tel">Telugu</label>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <div style="margin-right: 345px" id="declCont">
+                <input type="checkbox" name="decl" id="decl" />
+                <label for="decl"
+                  >Hereby I declare all the details are true</label
+                >
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <span style="margin-right: 200px"
+                >Log in to <a href="#">Ethnus</a> website</span
+              >
+            </td>
+          </tr>
+        </table>
+      </form>
+      <button type="submit" id="regbtn">register</button>
+    </div>
+    <script>
+        document
+  .getElementById("regbtn")
+  .addEventListener("click", function submitHandler(event) {
+    event.preventDefault();
+    fnameChecker();
+    lnameChecker();
+    emailChecker();
+    passchecker();
+    repasschecker();
+    genchecker();
+    agechecker();
+    phnchecker();
+    adrchecker();
+    statechecker();
+    declchecker();
+  });
+
+let fname = document.getElementById("fname");
+let fnameError = document.getElementById("fnError");
+function fnameChecker() {
+  if (fname.value.trim().length > 30) {
+    fnameError.textContent = "First name should not exceed 30 characters!";
+  } else if (!fname.value) {
+    fnameError.textContent = "POOR";
+  } else if (!/^[a-zA-Z]+$/.test(fname.value.trim())) {
+    fnameError.textContent = "First name should containt only alphabets!";
+  } else {
+    fnameError.textContent = "";
+  }
+}
+
+let lname = document.getElementById("lname");
+let lnameError = document.getElementById("lnError");
+function lnameChecker() {
+  if (lname.value.trim().length > 30) {
+    lnameError.textContent = "Name should not exceed 30 characters!";
+  } else if (!lname.value) {
+    lnameError.textContent = "POOR";
+  } else if (!/^[a-zA-Z]+$/.test(lname.value.trim())) {
+    lnameError.textContent = "Name should containt only alphabets!";
+  } else {
+    lnameError.textContent = "";
+  }
+}
+
+let Email = document.getElementById("Email");
+let EmailError = document.getElementById("EmailError");
+function emailChecker() {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(Email.value.trim())) {
+    EmailError.textContent = "POOR";
+  } else {
+    EmailError.textContent = "";
+  }
+}
+
+let pass = document.querySelector("#Password");
+let passError = document.querySelector("#PassError");
+function passchecker() {
+  if (!pass.value) {
+    passError.textContent = "POOR";
+  }
+}
+
+let repass = document.querySelector("#RePassword");
+let repassError = document.querySelector("#RePassError");
+function repasschecker() {
+  if (!repass.value) {
+    repassError.textContent = "POOR OR MISMATCH";
+  }
+}
+
+let m = document.querySelector("#Male");
+let f = document.querySelector("#Female");
+let genError = document.querySelector("#GenError");
+function genchecker() {
+  if (!m.checked && !f.checked) {
+    genError.textContent = "Please select your gender";
+  }
+}
+
+let age = document.querySelector("#Age");
+let ageError = document.querySelector("#AgeError");
+function agechecker() {
+  if (!age.value) {
+    ageError.textContent = "POOR";
+  }
+}
+
+let phn = document.querySelector("#Phone");
+let phnError = document.querySelector("#PhnError");
+function phnchecker() {
+  if (!phn.value) {
+    phnError.textContent = "POOR";
+  }
+}
+
+let adr = document.querySelector("#Address");
+let adrError = document.querySelector("#AdrError");
+function adrchecker() {
+  if (!adr.value) {
+    adrError.textContent = "POOR";
+  }
+}
+
+let state = document.querySelector("#State");
+let stateError = document.querySelector("#StateError");
+function statechecker() {
+  if (!state.value) {
+    stateError.textContent = "POOR";
+  }
+}
+
+let decl = document.querySelector("#decl");
+let declCont = document.querySelector("#declCont");
+function declchecker() {
+  if (!decl.checked) {
+    declCont.classList.add("error");
+  }
+}
+
+    </script>
+  </body>
+</html>

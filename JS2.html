@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK2_JS</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="margin: 50px">String in sorted alphabetical order</h1>
+    <input type="text" id="inp" />
+    <button type="button" onclick="alpha()" style="margin: 20px">Submit</button>
+    <div>
+      Sorted letter string:
+      <section id="sorted"></section>
+    </div>
+    <script>
+      function alpha() {
+  let x = document.querySelector("#inp").value;
+  console.log(x);
+  let y = x.split("").sort().join("");
+  console.log(y);
+  document.querySelector("#sorted").innerHTML = y;
+}
+
+    </script>
+  </body>
+</html>

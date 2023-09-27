@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK7_JS</title>
+    <style>
+        body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color:blue;
+  font-size:xx-large; 
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.btncontainer {
+  margin: 10px;
+}
+
+#animatedImage {
+  width: 500px;
+  transform: translateX(0);
+  transition: transform 5s linear;
+}
+
+button {
+  margin: 10px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./train.png" alt="Animated Image" id="animatedImage" />
+    </div>
+    <div>
+      <p>Click the following buttons to handle animation</p>
+    </div>
+    <div class="btncontainer">
+      <button id="startButton">Start Animation</button>
+      <button id="stopButton">Stop Animation</button>
+    </div>
+    <script>
+        const startButton = document.getElementById("startButton");
+const stopButton = document.getElementById("stopButton");
+const animatedImage = document.getElementById("animatedImage");
+let animationPaused = true;
+let currentTranslateX = 0;
+
+startButton.addEventListener("click", toggleAnimation);
+stopButton.addEventListener("click", stopAnimation);
+
+function toggleAnimation() {
+    animatedImage.style.transform = "translateX(100%)";
+    startButton.disabled = true;
+    stopButton.disabled = false;
+}
+
+function stopAnimation() {
+  const computedStyle = getComputedStyle(animatedImage);
+  currentTranslateX = parseInt(computedStyle.transform.split(",")[4]) || 0;
+
+  animatedImage.style.transform = `translateX(${currentTranslateX}px)`;
+
+  animatedImage.style.animationPlayState = "paused";
+  startButton.disabled = false;
+  stopButton.disabled = true;
+}
+
+    </script>
+  </body>
+</html>
